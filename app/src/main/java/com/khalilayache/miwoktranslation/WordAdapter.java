@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -19,9 +21,11 @@ import java.util.ArrayList;
 
 public class WordAdapter extends ArrayAdapter<Word> {
 
+    private int mBackgroundIdResource;
 
-    public WordAdapter(Activity context, ArrayList<Word> words) {
+    public WordAdapter(Activity context, ArrayList<Word> words, int mBackgroundIdResource) {
         super(context,0,words);
+        this.mBackgroundIdResource = mBackgroundIdResource;
     }
 
     @NonNull
@@ -31,14 +35,23 @@ public class WordAdapter extends ArrayAdapter<Word> {
         View listItemView = convertView;
         if(listItemView == null){
             listItemView = LayoutInflater.from(
-                    getContext()).inflate(
-                    android.R.layout.simple_list_item_2,
+                    getContext()).inflate(R.layout.list_item,
                     parent, false);
         }
 
         Word currentWord = getItem(position);
-        TextView textDefaultTranslation = (TextView) listItemView.findViewById(android.R.id.text1);
-        TextView textMiwokTranslation = (TextView) listItemView.findViewById(android.R.id.text2);
+        ImageView image = (ImageView) listItemView.findViewById(R.id.picture);
+        TextView textDefaultTranslation = (TextView) listItemView.findViewById(R.id.translation_word);
+        TextView textMiwokTranslation = (TextView) listItemView.findViewById(R.id.miwok_word);
+        LinearLayout linearLayout = (LinearLayout) listItemView.findViewById(R.id.words_container);
+
+        linearLayout.setBackgroundResource(mBackgroundIdResource);
+
+        if(currentWord.getmImageResourceId() != -1) {
+            image.setImageResource(currentWord.getmImageResourceId());
+        }else{
+            image.setVisibility(View.GONE);
+        }
 
         textDefaultTranslation.setText(currentWord.getmDefaultTranslation());
         textMiwokTranslation.setText(currentWord.getmMiwokTranslation());
