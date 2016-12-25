@@ -2,6 +2,7 @@ package com.khalilayache.miwoktranslation;
 
 import android.app.Activity;
 import android.content.Context;
+import android.media.MediaPlayer;
 import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -39,19 +40,24 @@ public class WordAdapter extends ArrayAdapter<Word> {
                     parent, false);
         }
 
+
+
         Word currentWord = getItem(position);
-        ImageView image = (ImageView) listItemView.findViewById(R.id.picture);
+        ImageView picture = (ImageView) listItemView.findViewById(R.id.picture);
         TextView textDefaultTranslation = (TextView) listItemView.findViewById(R.id.translation_word);
         TextView textMiwokTranslation = (TextView) listItemView.findViewById(R.id.miwok_word);
         LinearLayout linearLayout = (LinearLayout) listItemView.findViewById(R.id.words_container);
 
+
         linearLayout.setBackgroundResource(mBackgroundIdResource);
 
         if(currentWord.getmImageResourceId() != -1) {
-            image.setImageResource(currentWord.getmImageResourceId());
+            picture.setImageResource(currentWord.getmImageResourceId());
         }else{
-            image.setVisibility(View.GONE);
+            picture.setVisibility(View.GONE);
         }
+
+
 
         textDefaultTranslation.setText(currentWord.getmDefaultTranslation());
         textMiwokTranslation.setText(currentWord.getmMiwokTranslation());
