@@ -14,4 +14,6 @@
     <string name="eight">eight</string>
     <string name="nine">nine</string>
     <string name="ten">ten</string>
+    <string name="imagem">Imagem</string>
+    <string name="play_button">Play Button</string>
 </resources>

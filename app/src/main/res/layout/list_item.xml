@@ -1,4 +1,4 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="horizontal"
     android:layout_width="match_parent"
@@ -10,16 +10,20 @@
         android:layout_width="@dimen/list_item_height"
         android:layout_height="@dimen/list_item_height"
         android:src="@mipmap/ic_launcher"
-
         android:layout_gravity="center"
-        />
+        android:contentDescription="@string/imagem" />
 
     <LinearLayout
         android:id="@+id/words_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:layout_toEndOf="@id/picture"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
         android:paddingStart="@dimen/activity_horizontal_margin"
+        android:paddingEnd="@dimen/activity_horizontal_margin"
         android:background="@color/category_family"
         >
         <TextView
@@ -48,4 +52,16 @@
             />
     </LinearLayout>
 
-</LinearLayout>
+    <ImageView
+        android:contentDescription="@string/play_button"
+        android:id="@+id/play"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/ic_play_arrow"
+        android:layout_gravity="center"
+        />
+
+</RelativeLayout>
