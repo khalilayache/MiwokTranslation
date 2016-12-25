@@ -50,6 +50,7 @@ public class ColorsActivity extends AppCompatActivity {
                     public void onCompletion(MediaPlayer mediaPlayer) {
                         Toast.makeText(ColorsActivity.this,"Acabou",Toast.LENGTH_SHORT).show();
                         mediaPlayer.release();
+                        mediaPlayer = null;
                     }
                 });
             }
