@@ -10,6 +10,8 @@ import android.support.v4.app.FragmentPagerAdapter;
  */
 
 public class MiwokFragmentAdapter extends FragmentPagerAdapter {
+    private final int PAGE_COUNT = 4;
+    private String mTabTitles[] = new String[]{"Numbers","Family","Colors","Phrases"};
 
     public MiwokFragmentAdapter(FragmentManager fm) {
         super(fm);
@@ -33,7 +35,12 @@ public class MiwokFragmentAdapter extends FragmentPagerAdapter {
     }
 
     @Override
+    public CharSequence getPageTitle(int position) {
+        return mTabTitles[position];
+    }
+
+    @Override
     public int getCount() {
-        return 4;
+        return PAGE_COUNT;
     }
 }

@@ -5,6 +5,8 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/primary_color</item>
         <item name="colorPrimaryDark">@color/primary_dark_color</item>
+        <item name="actionBarStyle">@style/MiwokAppBarStyle</item>
+
     </style>
 
     <style name="CategoryStyle">
@@ -18,4 +20,10 @@
         <item name="android:textAppearance">?android:textAppearanceMedium</item>
     </style>
 
+
+    <style name="MiwokAppBarStyle" parent="style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
+
+        <item name="elevation">0dp</item>
+
+    </style>
 </resources>
