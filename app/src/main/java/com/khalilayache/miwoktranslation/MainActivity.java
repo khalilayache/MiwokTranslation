@@ -1,11 +1,9 @@
 package com.khalilayache.miwoktranslation;
 
 import android.app.Activity;
-import android.content.Intent;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -16,44 +14,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        TextView  numbers = (TextView) findViewById(R.id.numbers);
-        TextView  family = (TextView) findViewById(R.id.family);
-        TextView  colors = (TextView) findViewById(R.id.colors);
-        TextView  phrases = (TextView) findViewById(R.id.phrases);
+        ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
 
-        numbers.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(currentActivity,NumbersActivity.class);
-                startActivity(intent);
-            }
-        });
+        MiwokFragmentAdapter fragmentAdapter = new MiwokFragmentAdapter(getSupportFragmentManager());
 
-        family.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(currentActivity,FamilyActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        colors.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(currentActivity,ColorsActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        phrases.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(currentActivity,PhrasesActivity.class);
-                startActivity(intent);
-            }
-        });
-
-
+        viewPager.setAdapter(fragmentAdapter);
 
     }
 
